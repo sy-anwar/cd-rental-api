@@ -19,3 +19,11 @@ $factory->define(App\CdCollection::class, function (Faker\Generator $faker) {
         'quantity' => $faker->randomDigitNotNull,
     ];
 });
+
+$factory->define(App\Rent::class, function (Faker\Generator $faker) {
+    return [
+        'customer' => $faker->text,
+        'id_cd' => $faker->randomDigitNotNull,
+        'price' => 0,
+    ];
+});

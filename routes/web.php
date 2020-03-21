@@ -20,4 +20,12 @@ $router->get('/collections', 'CdCollectionController@index');
 $router->get('/collections/{id}', 'CdCollectionController@show');
 $router->put('/collections/{id}', 'CdCollectionController@update');
 $router->post('/collections', 'CdCollectionController@store');
-$router->delete('collections/{id}', 'CdCollectionController@destroy');
+$router->delete('/collections/{id}', 'CdCollectionController@destroy');
+
+$router->get('/rent', 'RentController@index');
+$router->get('/rent/{id}', 'RentController@show');
+$router->put('/rent/{id}', 'RentController@update');
+$router->post('/rent', 'RentController@store');
+$router->delete('/rent/{id}', 'RentController@destroy');
+
+$router->put('/return/{id}', 'RentController@return');

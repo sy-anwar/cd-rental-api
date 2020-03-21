@@ -18,7 +18,7 @@ class CdCollectionController extends Controller
     {
     }
     /**
-     * GET /products
+     * GET /collections
      * 
      * @return array
      */
@@ -29,6 +29,8 @@ class CdCollectionController extends Controller
 
     public function show($id){
         $cd = CdCollection::where('id',$id)->get();
+        if(!CdCollection::find($id)) return $this->errorResponse('CD not found!', 404);
+
         return \response($cd);
     }
 
@@ -81,7 +83,7 @@ class CdCollectionController extends Controller
         return $this->errorResponse('Failed to delete CD!', 400);
     }
 
-    public function customResponse($message = 'success', $status = 200)
+    public function errorResponse($message = 'success', $status = 200)
     {
         return response(['status' =>  $status, 'message' => $message], $status);
     }
